@@ -798,7 +798,7 @@ function M.setup(conf)
 end
 
 function M.get_config(opts)
-	return vim.tbl_deep_extend("force", M.config, opts or {})
+	return vim.tbl_deep_extend("force", M.config or DEFAULT_OPTS, opts or {})
 end
 
 M.TSScope = TSScope

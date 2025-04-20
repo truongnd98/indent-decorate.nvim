@@ -140,7 +140,7 @@ function M.setup(conf)
 end
 
 function M.get_config(opts)
-	return vim.tbl_deep_extend("force", M.config, opts or {})
+	return vim.tbl_deep_extend("force", M.config or DEFAULT_OPTS, opts or {})
 end
 
 --- Check if animations are enabled.
@@ -177,7 +177,7 @@ function M.add(from, to, cb, opts)
 
   -- resolve easing function
   local easing = opts.easing or "linear"
-  easing = type(easing) == "string" and require("animate.easing")[easing] or easing
+  easing = type(easing) == "string" and require("indent-decorate.animate.easing")[easing] or easing
   ---@cast easing animate.easing.Fn
 
   _id = _id + 1

@@ -129,7 +129,7 @@ function M.setup(conf)
 end
 
 function M.get_config(opts)
-	return vim.tbl_deep_extend("force", M.config, opts or {})
+	return vim.tbl_deep_extend("force", M.config or DEFAULT_OPTS, opts or {})
 end
 
 ---@class indent.Scope: scope.Scope
@@ -499,7 +499,7 @@ function M.on_scope(win, buf, scope, prev)
     end
   end
   if prev then -- clear previous scope
-    id_utils.util.redraw_range(win, prev.from, prev.to)
+    id_utils.redraw_range(win, prev.from, prev.to)
   end
 end
 
